@@ -57,13 +57,17 @@ document.querySelector("#skip").addEventListener("click", function() {
 	console.log(video.currentTime)
 });
 document.querySelector("#mute").addEventListener("click", function() {
-
+	if(video.muted){
+	this.innerHTML = "Mute"
+	}else{
+	this.innerHTML = "Unmute"
+	}
 	video.muted = !video.muted
-
 });
 
 document.querySelector("#slider").addEventListener("input", function() {
 
 	video.volume = (document.getElementById("slider").value)/100;
-
+	this.innerHTML = document.getElementById("slider").value + "%"
+	document.getElementById("volume").innerHTML = document.getElementById("slider").value + "%"
 });
